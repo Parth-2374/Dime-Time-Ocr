@@ -62,26 +62,6 @@ def clear_mock():
     global_mock_data = {}
     return {"message": "Mock data cleared"}
 
-@app.post("/ocr/extract")
-async def extract_ocr(file: UploadFile = File(...)):
-    try:
-        print("OCR STARTED")
-
-        image_bytes = await file.read()
-
-        print("FILE READ OK")
-
-        result = reader.readtext(image_bytes)
-
-        print("OCR RESULT:", result)
-
-        return {"result": result}
-
-    except Exception as e:
-        import traceback
-        traceback.print_exc()
-        print("OCR ERROR:", str(e))
-        raise
 
 # Lazy initialization of the EasyOCR Reader
 # This ensures FastAPI starts instantly and downloads/loads weights on first OCR call
