@@ -87,7 +87,11 @@ def get_ocr_reader():
     global easyocr_reader
     if easyocr_reader is None:
         # gpu=False ensures CPU processing, making it compatible on all machines without CUDA
-        easyocr_reader = easyocr.Reader(['en'], gpu=False)
+       reader = easyocr.Reader(
+    ['en'],
+    gpu=False,
+    verbose=False
+)
     return easyocr_reader
 
 class OcrResponse(BaseModel):
