@@ -65,7 +65,7 @@ def clear_mock():
 
 # Lazy initialization of the EasyOCR Reader
 # This ensures FastAPI starts instantly and downloads/loads weights on first OCR call
-easyocr_reader = None
+
 
 def should_ignore_node(text: str) -> bool:
     text_upper = text.upper()
@@ -83,15 +83,18 @@ def should_ignore_node(text: str) -> bool:
             return True
     return False
 
+easyocr_reader = None
+
 def get_ocr_reader():
     global easyocr_reader
+
     if easyocr_reader is None:
-        # gpu=False ensures CPU processing, making it compatible on all machines without CUDA
-       reader = easyocr.Reader(
-    ['en'],
-    gpu=False,
-    verbose=False
-)
+        easyocr_reader = easyocr.Reader(
+            ['en'],
+            gpu=False,
+            verbose=False
+        )
+
     return easyocr_reader
 
 class OcrResponse(BaseModel):
