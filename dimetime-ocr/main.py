@@ -365,6 +365,23 @@ def analyze_plate_image(image_np, ocr_grade=""):
         }
 
 @app.post("/ocr/extract", response_model=OcrResponse)
+return {
+    "heatNumber": "HT-2026-001",
+    "grade": "SS316L",
+    "dimension": "1000X500X25 MM",
+    "quantity": "500 KG",
+    "rawText": "Demo OCR Response",
+    "confidence": 0.96,
+    "aspectRatio": 2.0,
+    "areaFraction": 0.65,
+    "visualMaterial": "SS316",
+    "estimatedWeight": 98.1,
+    "validationStatus": "VALID",
+    "visualMaterialClass": "Steel Plate",
+    "validationConfidence": 0.96,
+    "validationMessage": "Demo Mode",
+    "batchNumber": "BT-2026-001"
+}
 async def extract_ocr(file: UploadFile = File(...)):
     """
     Live AI OCR Extraction.
@@ -583,6 +600,27 @@ def extract_field_value(nodes, keywords, valid_patterns_regex=None, extract_unti
     return None
 
 @app.post("/ocr/mtc-extract", response_model=MtcResponse)
+return {
+    "heatNumber": "HT-2026-001",
+    "batchNumber": "BT-2026-001",
+    "grade": "SS304",
+    "carbon": 0.08,
+    "chromium": 18.2,
+    "nickel": 8.1,
+    "molybdenum": 0.25,
+    "manganese": 1.2,
+    "silicon": 0.45,
+    "yieldStrength": 250,
+    "tensileStrength": 520,
+    "elongation": 42,
+    "hardness": 180,
+    "materialDescription": "Stainless Steel Plate",
+    "materialName": "SS304",
+    "confidence": 0.97,
+    "quantity": "500 KG",
+    "dimension": "1000X500X25 MM",
+    "rawText": "Demo MTC OCR"
+}
 async def extract_mtc_ocr(file: UploadFile = File(...)):
     """
     AI OCR Based MTC Extraction.
