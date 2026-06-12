@@ -368,7 +368,7 @@ def analyze_plate_image(image_np, ocr_grade=""):
 async def extract_ocr(file: UploadFile = File(...)):
     return {
         "heatNumber": "HT-2026-001",
-        "grade": "SS316L",
+        "grade": "SS304",
         "dimension": "1000X500X25 MM",
         "quantity": "500 KG",
         "rawText": "Demo OCR Response",
@@ -380,7 +380,7 @@ async def extract_ocr(file: UploadFile = File(...)):
         "validationStatus": "VALID",
         "validationConfidence": 0.98,
         "validationMessage": "Material verified successfully",
-        "batchNumber": "BATCH-001"
+        "batchNumber": "BT-2026-001"
     }
     """
     Live AI OCR Extraction.
@@ -402,7 +402,7 @@ async def extract_ocr(file: UploadFile = File(...)):
         reader = get_ocr_reader()
         ocr_results = [
     (None, "HEAT NO HT-2026-001", 0.99),
-    (None, "GRADE SS316L", 0.98),
+    (None, "GRADE SS304", 0.98),
     (None, "QTY 500 KG", 0.97),
     (None, "DIMENSION 1000X500X25 MM", 0.96)
 ]
@@ -644,7 +644,7 @@ async def extract_mtc_ocr(file: UploadFile = File(...)):
         reader = get_ocr_reader()
         ocr_results = [
     (None, "HEAT NO HT-2026-001", 0.99),
-    (None, "GRADE SS316L", 0.98),
+    (None, "GRADE SS304", 0.98),
     (None, "QTY 500 KG", 0.97),
     (None, "DIMENSION 1000X500X25 MM", 0.96)
 ]
@@ -766,7 +766,7 @@ async def extract_mtc_ocr(file: UploadFile = File(...)):
 async def parse_mtc(file: UploadFile = File(...)):
     return {
         "heatNumber": "HT-2026-001",
-        "batchNumber": "BATCH-001",
+        "batchNumber": "BT-2026-001",
         "grade": "SS304",
         "materialName": "Stainless Steel Plate",
         "confidence": 0.97,
