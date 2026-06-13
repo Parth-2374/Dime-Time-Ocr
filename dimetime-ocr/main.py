@@ -369,7 +369,7 @@ async def extract_ocr(file: UploadFile = File(...)):
     return {
         "heatNumber": "HT-2026-001",
         "grade": "SS304",
-        "dimension": "1000X500X25 MM",
+        "dimension": "10X1500X6000 MM",
         "quantity": "500 KG",
         "rawText": "Demo OCR Response",
         "confidence": 0.98,
@@ -404,7 +404,7 @@ async def extract_ocr(file: UploadFile = File(...)):
     (None, "HEAT NO HT-2026-001", 0.99),
     (None, "GRADE SS304", 0.98),
     (None, "QTY 500 KG", 0.97),
-    (None, "DIMENSION 1000X500X25 MM", 0.96)
+    (None, "DIMENSION 10X1500X6000 MM", 0.96)
 ]
         
         # 4. Compile raw text block and compute average confidence
@@ -623,7 +623,7 @@ async def extract_mtc_ocr(file: UploadFile = File(...)):
         "materialName": "SS304",
         "confidence": 0.97,
         "quantity": "500 KG",
-        "dimension": "1000X500X25 MM",
+        "dimension": "10X1500X6000 MM",
         "rawText": "Demo MTC OCR"
     }
     """
@@ -771,7 +771,7 @@ async def parse_mtc(file: UploadFile = File(...)):
         "materialName": "Stainless Steel Plate",
         "confidence": 0.97,
         "quantity": "500 KG",
-        "dimension": "1000X500X25 MM",
+        "dimension": "10X1500X6000 MM",
         "rawText": "Demo MTC OCR"
     }
     """
